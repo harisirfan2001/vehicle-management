@@ -10,6 +10,8 @@ class RolesAndPermissionsSeeder extends Seeder
 {
     public function run(): void
     {
+
+        //gatepass perms
         Permission::firstOrCreate(['name' => 'checkin gatepass']);
         Permission::firstOrCreate(['name' => 'delete gatepass']);
         Permission::firstOrCreate(['name' => 'print gatepass']);

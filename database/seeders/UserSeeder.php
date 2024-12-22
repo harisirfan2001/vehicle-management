@@ -14,10 +14,10 @@ class UserSeeder extends Seeder
       
 
         $superAdmin = User::updateOrCreate(
-            ['email' => 'superadmin@parwestgroup.com'],
+            ['email' => 'superadmin@superadmin.com'],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('parwestadmin@123'),
+                'password' => Hash::make('password'),
                 'active' => true,
             ]
         );
@@ -28,10 +28,10 @@ class UserSeeder extends Seeder
         }
 
         $admin = User::updateOrCreate(
-            ['email' => 'admin@parwestgroup.com'],
+            ['email' => 'admin@admin.com'],
             [
                 'name' => 'Admin',
-                'password' => Hash::make('admin@123'),
+                'password' => Hash::make('password'),
             ]
         );
 
@@ -40,27 +40,8 @@ class UserSeeder extends Seeder
             $admin->assignRole($adminRole);
         }
 
-        $regularUsers = [
-            ['name' => 'Faheem', 'email' => 'faheem@parwestgroup.com', 'password' => 'faheem@123'],
-            ['name' => 'Ihsaan', 'email' => 'ihsaan@parwestgroup.com', 'password' => 'ihsaan@123'],
-            ['name' => 'Sajid', 'email' => 'sajid@parwestgroup.com', 'password' => 'sajid@123'],
-            ['name' => 'Ramzan', 'email' => 'ramzan@parwestgroup.com', 'password' => 'ramzan@123'],
-            ['name' => 'Alexander', 'email' => 'alex@parwestgroup.com', 'password' => 'alex@123'],
-        ];
-
-        $userRole = Role::where('name', 'Receptionist')->first();
-        foreach ($regularUsers as $userData) {
-            $user = User::updateOrCreate(
-                ['email' => $userData['email']],
-                [
-                    'name' => $userData['name'],
-                    'password' => Hash::make($userData['password']),
-                ]
-            );
-
-            if ($userRole) {
-                $user->assignRole($userRole);
-            }
-        }
+        // $regularUsers = [
+        //     ['name' => 'name', 'email' => 'email', 'password' => 'password'],
+        // ];
     }
 }
